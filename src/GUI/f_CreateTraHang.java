@@ -361,7 +361,7 @@ public class f_CreateTraHang extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(f_CreateTraHang.class.getName()).log(Level.SEVERE, null, ex);
         }
-        String sql="INSERT INTO phieu_tra_hang (id_tra, thoi_gian_tra, mo_ta,id_nv, id_lo) VALUES ('"+id_tra+"', '"+thoi_gian_tra+"', '"+mo_ta+"','"+id_nv+"','"+id_lo+"');";
+        String sql="INSERT INTO phieu_tra_hang (id_tra, thoi_gian_tra, mo_ta,id_nv, id_lo,so_luong_sp) VALUES ('"+id_tra+"', '"+thoi_gian_tra+"', '"+mo_ta+"','"+id_nv+"','"+id_lo+"','"+Integer.parseInt(jTextField3.getText())+"');";
         accessDB.getInstance().executeUpdate(sql);
 //        sql="delete from phieu_tra_hang where id_lo='"+id_lo+"';";
 //        accessDB.getInstance().executeUpdate(sql);

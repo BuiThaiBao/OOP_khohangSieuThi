@@ -123,8 +123,6 @@ public class f_ChonSanPhamNhapHang extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableSanPham = new javax.swing.JTable();
         jComboBoxLoaiSanPham = new javax.swing.JComboBox<>();
-        jTextFieldTimKiem = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
         jButtonChonSanPhamTiepTuc = new javax.swing.JButton();
         jButtonQuayLại = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
@@ -287,21 +285,6 @@ public class f_ChonSanPhamNhapHang extends javax.swing.JFrame {
             }
         });
 
-        jTextFieldTimKiem.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextFieldTimKiem.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                jTextFieldTimKiemKeyReleased(evt);
-            }
-        });
-
-        jButton2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton2.setText("Tìm kiếm");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-
         jButtonChonSanPhamTiepTuc.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButtonChonSanPhamTiepTuc.setText("Tiếp tục");
         jButtonChonSanPhamTiepTuc.addActionListener(new java.awt.event.ActionListener() {
@@ -405,21 +388,16 @@ public class f_ChonSanPhamNhapHang extends javax.swing.JFrame {
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jComboBoxLoaiSanPham, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jTextFieldTimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton2)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(52, Short.MAX_VALUE)
+                .addContainerGap(59, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jComboBoxLoaiSanPham, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldTimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2))
+                    .addComponent(jComboBoxLoaiSanPham, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 458, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -441,20 +419,6 @@ public class f_ChonSanPhamNhapHang extends javax.swing.JFrame {
             listDanhSachSanPhamTheoLoai(tenloai);
         }
     }//GEN-LAST:event_jComboBoxLoaiSanPhamActionPerformed
-
-    private void jTextFieldTimKiemKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldTimKiemKeyReleased
-       DefaultTableModel model = (DefaultTableModel) jTableSanPham.getModel();
-        while (jTableSanPham.getRowCount() > 0) {
-            model.removeRow(0);
-        }
-        ArrayList<SanPham> arr = daoSanPham.getInstance().FindListSanPham(jTextFieldTimKiem.getText());
-        arr.stream().forEach((item) -> {
-            
-            String Loai_sp = daoLoaiSanPham.getInstance().getLoaiSanPham(item.id_loai_sp).ten_loai_sp;
-            model.addRow(new Object[]{item.id_sp,item.ten_sp,Loai_sp});
-        });
-        
-    }//GEN-LAST:event_jTextFieldTimKiemKeyReleased
 
     private void jTableSanPhamMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableSanPhamMouseClicked
         DefaultTableModel model = (DefaultTableModel)jTableSanPham.getModel();
@@ -495,10 +459,6 @@ public class f_ChonSanPhamNhapHang extends javax.swing.JFrame {
     private void jLabel13MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MousePressed
 
     }//GEN-LAST:event_jLabel13MousePressed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jComboBoxLoaiSanPhamItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxLoaiSanPhamItemStateChanged
         // TODO add your handling code here:
@@ -542,7 +502,6 @@ public class f_ChonSanPhamNhapHang extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButtonChonSanPhamTiepTuc;
     private javax.swing.JButton jButtonQuayLại;
     private javax.swing.JComboBox<String> jComboBoxLoaiSanPham;
@@ -555,6 +514,5 @@ public class f_ChonSanPhamNhapHang extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableSanPham;
-    private javax.swing.JTextField jTextFieldTimKiem;
     // End of variables declaration//GEN-END:variables
 }

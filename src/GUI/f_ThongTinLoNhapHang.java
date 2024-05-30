@@ -14,6 +14,7 @@ import java.lang.*;
 import java.sql.ResultSet;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.ZoneId;
 
 /**
  *
@@ -77,10 +78,10 @@ public class f_ThongTinLoNhapHang extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jSpinnerGiaTien = new javax.swing.JSpinner();
         jSpinnerSoLuong = new javax.swing.JSpinner();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
+        jDateChooserHSD = new com.toedter.calendar.JDateChooser();
+        jDateChooserNSX = new com.toedter.calendar.JDateChooser();
         jPanel1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -132,12 +133,6 @@ public class f_ThongTinLoNhapHang extends javax.swing.JFrame {
 
         jSpinnerSoLuong.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
-
         jLabel1.setText("Khu Vực");
 
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
@@ -160,37 +155,40 @@ public class f_ThongTinLoNhapHang extends javax.swing.JFrame {
                         .addGap(25, 25, 25)
                         .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jDateChooserHSD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jSpinnerSoLuong, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(106, Short.MAX_VALUE))
+                                .addComponent(jDateChooserNSX, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(11, 11, 11)))
+                .addContainerGap(107, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap(222, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jSpinnerGiaTien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel2)
+                        .addComponent(jSpinnerGiaTien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel9))
+                    .addComponent(jDateChooserHSD, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(31, 31, 31)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(jSpinnerSoLuong, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel7)
+                        .addComponent(jSpinnerSoLuong, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel10))
+                    .addComponent(jDateChooserNSX, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(31, 31, 31)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
@@ -323,7 +321,8 @@ public class f_ThongTinLoNhapHang extends javax.swing.JFrame {
 
     private void jButtonTiepTucActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTiepTucActionPerformed
         // TODO add your handling code here:
-        if((int)jSpinnerGiaTien.getValue()<=0 || (int)jSpinnerSoLuong.getValue()<=0 || "".equals(jTextField2.getText()) || "".equals(jTextField1.getText())){
+//        if((int)jSpinnerGiaTien.getValue()<=0 || (int)jSpinnerSoLuong.getValue()<=0 || "".equals(jTextField2.getText()) || "".equals(jTextField1.getText())){
+            if((int)jSpinnerGiaTien.getValue()<=0 || (int)jSpinnerSoLuong.getValue()<=0 || jDateChooserHSD.getDate()==null || jDateChooserNSX.getDate()==null){
             System.err.println("chưa nhap cl j");
             JOptionPane.showMessageDialog(rootPane,
             "Còn dữ liệu chưa nhập.",
@@ -344,7 +343,9 @@ public class f_ThongTinLoNhapHang extends javax.swing.JFrame {
             DateTimeFormatter thoi_gian = DateTimeFormatter.ofPattern("yyyy-MM-dd");
             LocalDate localDate = LocalDate.now();
             String formattedDate = localDate.format(thoi_gian);
-            f_HoanThanhNhapHang hoanThanhNhapHang = new f_HoanThanhNhapHang(id_pn,f_DangNhap.id_nv,id_sp,id_nguon_cc,localDate,LocalDate.parse(jTextField1.getText(), thoi_gian),LocalDate.parse(jTextField2.getText(), thoi_gian),id_lo,(int)jSpinnerGiaTien.getValue(),(int)jSpinnerSoLuong.getValue(),so_tien_lo,so_luong_lo,(String)jComboBox1.getSelectedItem());
+            LocalDate hsd = jDateChooserHSD.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+            LocalDate nsx = jDateChooserNSX.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+            f_HoanThanhNhapHang hoanThanhNhapHang = new f_HoanThanhNhapHang(id_pn,f_DangNhap.id_nv,id_sp,id_nguon_cc,localDate,hsd,nsx,id_lo,(int)jSpinnerGiaTien.getValue(),(int)jSpinnerSoLuong.getValue(),so_tien_lo,so_luong_lo,(String)jComboBox1.getSelectedItem());
             hoanThanhNhapHang.setLocationRelativeTo(null);
             hoanThanhNhapHang.setVisible(true);
             hoanThanhNhapHang.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -370,10 +371,6 @@ public class f_ThongTinLoNhapHang extends javax.swing.JFrame {
 //        TrangChu.setVisible(true);
         dispose();
     }//GEN-LAST:event_jLabel3MousePressed
-
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
@@ -419,6 +416,8 @@ public class f_ThongTinLoNhapHang extends javax.swing.JFrame {
     private javax.swing.JButton jButtonQuayLai;
     private javax.swing.JButton jButtonTiepTuc;
     private javax.swing.JComboBox<String> jComboBox1;
+    private com.toedter.calendar.JDateChooser jDateChooserHSD;
+    private com.toedter.calendar.JDateChooser jDateChooserNSX;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -433,7 +432,5 @@ public class f_ThongTinLoNhapHang extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSpinner jSpinnerGiaTien;
     private javax.swing.JSpinner jSpinnerSoLuong;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
 }

@@ -49,7 +49,16 @@ public class f_chonLoXuat extends javax.swing.JFrame {
         
     }
     public void setTextField(){
-        int id_lo = Integer.parseInt((String) jComboBoxId_lo.getSelectedItem());
+        int id_lo;
+            if((String)jComboBoxId_lo.getSelectedItem()!=null){
+                id_lo = Integer.parseInt((String) jComboBoxId_lo.getSelectedItem());
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Trong kho không còn lô hàng nào !!!");
+                jButton1.setEnabled(false);
+                dispose();
+                return ;
+            }
         String sql="select so_luong_sp, ten_sp,id_kv from lo_san_pham join san_pham on lo_san_pham.ID_SP=san_pham.ID_SP where id_lo="+id_lo+";";
         ResultSet rs=accessDB.getInstance().excuteQuery(sql);
         try {
@@ -281,7 +290,7 @@ public class f_chonLoXuat extends javax.swing.JFrame {
         }
         sql = "insert into phieu_xuat_kho (id_phieu_xuat,thoi_gian_xuat,id_lo,id_nv) values ("+id_px+",'"+localDate+"',"+id_lo+","+f_DangNhap.id_nv+");";
         accessDB.getInstance().executeUpdate(sql);
-        sql="UPDATE lo_san_pham SET id_lo = -1 WHERE id_lo="+id_lo+";";
+        sql="UPDATE lo_san_pham SET so_luong_sp = -1 WHERE id_lo="+id_lo+";";
         accessDB.getInstance().executeUpdate(sql);
         JOptionPane.showMessageDialog(null, "Xuất kho thành công");
         dispose();

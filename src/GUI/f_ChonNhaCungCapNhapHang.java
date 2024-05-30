@@ -88,8 +88,6 @@ public class f_ChonNhaCungCapNhapHang extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        jTextFieldTimKiemNhaCungCap = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableNguonCC = new javax.swing.JTable();
         jButtonChonNhaCungCapTiepTuc = new javax.swing.JButton();
@@ -171,16 +169,6 @@ public class f_ChonNhaCungCapNhapHang extends javax.swing.JFrame {
                 .addComponent(jLabel5)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-
-        jButton2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton2.setText("Tìm kiếm");
-
-        jTextFieldTimKiemNhaCungCap.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextFieldTimKiemNhaCungCap.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                jTextFieldTimKiemNhaCungCapKeyReleased(evt);
-            }
-        });
 
         jTableNguonCC.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTableNguonCC.setModel(new javax.swing.table.DefaultTableModel(
@@ -357,21 +345,13 @@ public class f_ChonNhaCungCapNhapHang extends javax.swing.JFrame {
                         .addComponent(jLabel1)
                         .addGap(18, 18, 18)
                         .addComponent(jSpinnerSoLuongLo, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(13, 13, 13)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jTextFieldTimKiemNhaCungCap)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(24, 24, 24))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(50, 50, 50)
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jSpinnerSoTienLo, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel8)
-                                .addGap(0, 0, Short.MAX_VALUE)))))
+                        .addGap(63, 63, 63)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jSpinnerSoTienLo, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel8)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -385,11 +365,7 @@ public class f_ChonNhaCungCapNhapHang extends javax.swing.JFrame {
                     .addComponent(jSpinnerSoLuongLo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jSpinnerSoTienLo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldTimKiemNhaCungCap, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2))
-                .addGap(18, 18, 18)
+                .addGap(54, 54, 54)
                 .addComponent(jScrollPane1)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -401,17 +377,6 @@ public class f_ChonNhaCungCapNhapHang extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jTextFieldTimKiemNhaCungCapKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldTimKiemNhaCungCapKeyReleased
-        DefaultTableModel model = (DefaultTableModel) jTableNguonCC.getModel();
-        while (jTableNguonCC.getRowCount() > 0) {
-            model.removeRow(0);
-        }
-        ArrayList<NguonCungCap> arr = daoNguonCungCap.getInstance().FindListNguonCungCap(jTextFieldTimKiemNhaCungCap.getText());
-        for(int i=0;i<arr.size();i++){
-            model.addRow(new Object[]{arr.get(i).id_nguon_cc,arr.get(i).ten_nha_cc,arr.get(i).ten_dai_dien,arr.get(i).sdt});
-        }
-    }//GEN-LAST:event_jTextFieldTimKiemNhaCungCapKeyReleased
 
     private void jButtonChonNhaCungCapTiepTucActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonChonNhaCungCapTiepTucActionPerformed
 
@@ -502,7 +467,6 @@ public class f_ChonNhaCungCapNhapHang extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButtonChonNhaCungCapTiepTuc;
     private javax.swing.JButton jButtonQuayLai;
     private javax.swing.JLabel jLabel1;
@@ -518,6 +482,5 @@ public class f_ChonNhaCungCapNhapHang extends javax.swing.JFrame {
     private javax.swing.JSpinner jSpinnerSoLuongLo;
     private javax.swing.JSpinner jSpinnerSoTienLo;
     private javax.swing.JTable jTableNguonCC;
-    private javax.swing.JTextField jTextFieldTimKiemNhaCungCap;
     // End of variables declaration//GEN-END:variables
 }

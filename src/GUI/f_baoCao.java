@@ -77,7 +77,7 @@ public class f_baoCao extends javax.swing.JFrame {
              "lo_san_pham.id_Lo, " +
              "phieu_nhap.thoi_gian, " +
              "san_pham.Ten_SP, " +
-             "phieu_nhap.So_Luong_Lo, " +
+             "phieu_nhap.So_Luong_Lo_nhap, " +
              "lo_san_pham.so_tien_lo " +
              "FROM " +
              "lo_san_pham " +
@@ -304,6 +304,7 @@ public class f_baoCao extends javax.swing.JFrame {
 
     private void btnThoatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThoatActionPerformed
         // TODO add your handling code here:
+        dispose();
     }//GEN-LAST:event_btnThoatActionPerformed
 
     private void btnBCaoNhapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBCaoNhapActionPerformed

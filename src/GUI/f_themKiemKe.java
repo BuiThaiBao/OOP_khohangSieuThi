@@ -541,7 +541,7 @@ public class f_themKiemKe extends javax.swing.JFrame {
     private void jSpinner2StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinner2StateChanged
         // TODO add your handling code here:
         int SoLuong=0;
-        String sql="select So_luong_SP from Lo_San_Pham where ID_Lo='"+ jComboBox2.getSelectedItem() +"'";
+        String sql="select So_luong_SP from Lo_San_Pham where ID_Lo='"+ jComboBox2.getSelectedItem() +"' and so_luong_sp!=-1";
 //        System.err.println("soluong: "+SoLuong);
         try {
             accessDB.getInstance().open();
@@ -642,7 +642,7 @@ public class f_themKiemKe extends javax.swing.JFrame {
     public void builtComboBoxID_LO(){
         String khuVuc=(String) jComboBox1.getSelectedItem();
         System.err.println("kuve: "+khuVuc);
-        String sql="SELECT ID_Lo  FROM Lo_San_Pham Where ID_KV='"+khuVuc+"'";
+        String sql="SELECT ID_Lo  FROM Lo_San_Pham Where ID_KV='"+khuVuc+"' and so_luong_sp!=-1";
         accessDB.getInstance().open();
         ResultSet rs = accessDB.getInstance().excuteQuery(sql);
         try {
